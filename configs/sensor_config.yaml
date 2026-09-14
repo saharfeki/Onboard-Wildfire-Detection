@@ -1,0 +1,36 @@
+# Naive B0 is one full, uncompressed payload frame. It describes the flight
+# sensor, not the variable-size RGB photographs used for early model bring-up.
+name: Flight LWIR Boson 640 baseline
+platform: Conceptual cubesat payload (FLIR Boson 640-class)
+gsd_m: null  # Depends on the selected optics and orbit altitude.
+frame_width_px: 640
+frame_height_px: 512
+bands:
+  - name: LWIR
+    wavelength_range_um: [7.5, 13.5]
+    bit_depth: 16
+    purpose: primary_detection
+compression_ratio: 1.0
+# The sensor spec's naive raw-frame formula has no metadata allowance.
+metadata_bytes_per_frame: 0
+frames_per_day: 1
+notes: >-
+  B0 = ceil(width_px * height_px * sum(band bit_depth) / 8) bytes/frame.
+  This is one 640 x 512, single-band 16-bit radiometric LWIR frame, before
+  compression or staged processing. One frame/day is only an operations
+  planning placeholder.
+training_dataset_reference:
+  fidelity: low_fidelity_proxy
+  modality: RGB photographs
+  average_width_px: 4057
+  average_height_px: 3155
+  minimum_width_px: 153
+  minimum_height_px: 206
+  maximum_width_px: 19699
+  maximum_height_px: 8974
+  width_stddev_px: 1867.47
+  height_stddev_px: 1388.60
+  note: >-
+    These variable RGB image dimensions are useful for training-data loading
+    and preprocessing only. They must not be used to estimate flight telemetry
+    or make flight-representative performance claims.

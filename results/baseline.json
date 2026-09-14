@@ -1,0 +1,29 @@
+{
+  "name": "Flight LWIR Boson 640 baseline",
+  "platform": "Conceptual cubesat payload (FLIR Boson 640-class)",
+  "gsd_m": null,
+  "frame_width_px": 640,
+  "frame_height_px": 512,
+  "bands": [
+    {
+      "name": "LWIR",
+      "wavelength_range_um": [
+        7.5,
+        13.5
+      ],
+      "bit_depth": 16,
+      "purpose": "primary_detection"
+    }
+  ],
+  "band_count": 1,
+  "compression_ratio": 1.0,
+  "metadata_bytes_per_frame": 0,
+  "frames_per_day": 1,
+  "pixels_per_frame": 327680,
+  "bits_per_pixel_total": 16,
+  "bits_per_frame": 5242880,
+  "bytes_per_frame_raw": 655360,
+  "bytes_per_frame_comp": 655360,
+  "bytes_per_frame_total": 655360,
+  "bytes_per_day": 655360
+}
